@@ -41,6 +41,16 @@ flattened_list = [i for row in list_of_lists for i in row]
 print(flattened_list)
 
 #3
-for i in range(11):
-    lista = [i*1*j for j in range(7)]
-    print(lista)
+result = [tuple([i] + [i**p for p in range(6)]) for i in range(11)]
+print(result)
+
+#4
+countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
+result = [
+    [country.upper(), country[:3].upper(), city.upper()]
+    for [(country, city)] in countries
+]
+print(result)
+
+
+
