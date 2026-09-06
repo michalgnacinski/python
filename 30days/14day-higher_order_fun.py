@@ -125,7 +125,7 @@ print(list(names_to_upper))
 
 #4
 def contains_land(country):
-    if "land" in country:
+    if "onia" in country:
         return True
     return False
 country_contains_land = filter(contains_land, countries_ex)
@@ -138,3 +138,29 @@ def six_char(country):
     return False
 country_six_char = filter(six_char, countries_ex)
 print(list(country_six_char))
+
+#6
+def six_or_more(country):
+    if len(country) >= 6:
+        return True
+    return False
+country_six_or_more = filter(six_or_more, countries_ex)
+print(list(country_six_or_more))
+
+#7 
+def starts_with_e(country):
+    if country.startswith("E"):
+        return True
+    return False
+country_starts_with_e = filter(starts_with_e, countries_ex)
+print(list(country_starts_with_e))
+
+#8
+chained = filter(
+    contains_land,
+    filter(
+        six_or_more,
+        countries_ex
+    )
+)
+print(list(chained))
