@@ -138,7 +138,7 @@ def six_char(country):
     return False
 country_six_char = filter(six_char, countries_ex)
 print(list(country_six_char))
-
+suma = 0
 #6
 def six_or_more(country):
     if len(country) >= 6:
@@ -164,3 +164,12 @@ chained = filter(
     )
 )
 print(list(chained))
+
+#10
+suma = 0
+def sum_up(numbers):
+    for i in range(len(numbers)):
+        suma += numbers[i]
+    return suma
+sum_up_with_reduce = reduce(sum_up, numbers_ex)
+print(sum_up_with_reduce)
