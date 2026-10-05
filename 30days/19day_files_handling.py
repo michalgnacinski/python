@@ -101,9 +101,16 @@ with open('./assets/melina_trump_speech.txt', 'r') as ex1:
 print(f'Lines count: {line_count}, words count: {count_words}')
 
 #Exercise 2
-def most_spoken_lanugages(filename='./assets/countries_data.json', counter):
+def most_populated_countries(filename='./assets/countries_data.json', counter=10):
     with open(filename, 'r', encoding='utf-8') as kraje:
         countries = json.load(kraje)
-        for kraj in range(counter):
-            
-print(most_spoken_lanugages())
+
+    return sorted(
+        countries,
+        key=lambda country: country['population'],
+        reverse=True
+    )[:counter]
+
+
+for country in most_populated_countries():
+    print(f"{country['name']}: {country['population']:,}")
