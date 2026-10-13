@@ -1,6 +1,7 @@
 #WebBrowser - opening websites
 
-import webbrowser, requests
+import webbrowser, requests, string
+from collections import Counter
 # url_lists = [
 #     'http://www.python.org',
 #     'https://www.linkedin.com/in/asabeneh/',
@@ -28,4 +29,15 @@ print(response2.status_code)
 #Exercise 1
 romeo_and_julia = 'http://www.gutenberg.org/files/1112/1112.txt'
 response_romeo = requests.get(romeo_and_julia)
-print(response_romeo)
+response_romeo.encoding='utf-8'
+text = response_romeo.text
+text_lower = text.lower()
+clean_text = text_lower.translate(str.maketrans("", "", string.punctuation))
+words = clean_text.split()
+words_count = Counter(words)
+most_10_common = words_count.most_common(10)
+
+print(most_10_common)
+
+
+#for word in response_romeo
