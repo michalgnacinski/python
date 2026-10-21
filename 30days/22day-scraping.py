@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://ue.poznan.pl/"
+url = "https://archive.ics.uci.edu/ml/datasets.php"
 
 response = requests.get(url)
 soup = BeautifulSoup(response.content, 'html.parser')
